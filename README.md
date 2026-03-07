@@ -122,17 +122,21 @@ system-rezerwacji
 
 ### API Documentation (Swagger)
 
-![Swagger](docs/images/swagger.png)
+![Swagger](docs/swagger.png)
 
 ### Application Interface
 
-![Frontend](docs/images/frontend.png)
+![Frontend](docs/frontend.png)
 
 ---
 
 # Database Diagram
 
 ![ERD](docs/erd.png)
+
+## System Architecture
+
+![Architecture](docs/system_architecture.png)
 
 ---
 
