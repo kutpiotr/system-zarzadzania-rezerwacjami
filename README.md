@@ -122,11 +122,11 @@ system-rezerwacji
 
 ### API Documentation (Swagger)
 
-![Swagger](docs/swagger.png)
+![Swagger](docs/images/swagger.png)
 
 ### Application Interface
 
-![Frontend](docs/frontend.png)
+![Frontend](docs/images/frontend.png)
 
 ---
 
