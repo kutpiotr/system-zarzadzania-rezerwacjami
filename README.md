@@ -4,71 +4,96 @@ Aplikacja webowa umożliwiająca zarządzanie rezerwacjami zasobów takich jak s
 
 Projekt powstał jako projekt portfolio pokazujący umiejętności w zakresie:
 
-* tworzenia backendu REST API
-* projektowania bazy danych
-* implementacji logiki biznesowej
-* testowania API
-* dokumentacji systemowej
-* integracji z frontendem
+- tworzenia backendu REST API
+- projektowania bazy danych
+- implementacji logiki biznesowej
+- integracji backendu z frontendem
+- dokumentowania systemów informatycznych
 
 ---
 
-## Funkcjonalności
+# Project Status
 
-Obecna wersja systemu umożliwia:
+Aktualnie zaimplementowano:
 
-* tworzenie użytkowników
-* zarządzanie zasobami (np. sale, sprzęt)
-* tworzenie rezerwacji
-* przeglądanie listy rezerwacji
-* walidację konfliktów rezerwacji (blokowanie nakładających się terminów)
+- backend REST API
+- obsługę użytkowników
+- obsługę zasobów
+- obsługę rezerwacji
+- walidację konfliktów terminów
+- frontend połączony z backendem
+- formularz dodawania rezerwacji
 
-### Planowane funkcje
+Planowane rozwinięcia projektu:
 
-* role użytkowników (admin / user)
-* panel administracyjny
-* filtrowanie rezerwacji
-* powiadomienia
-* moduł rekomendacji zasobów
+- role użytkowników (admin / user)
+- panel administracyjny
+- filtrowanie rezerwacji
+- testy API
+- moduł rekomendacji zasobów
 
 ---
 
-## Architektura systemu
+# Funkcjonalności
+
+System umożliwia:
+
+- tworzenie użytkowników
+- zarządzanie zasobami (np. sale, sprzęt)
+- tworzenie rezerwacji
+- przeglądanie listy rezerwacji
+- walidację konfliktów rezerwacji (blokowanie nakładających się terminów)
+
+---
+
+# Business Rules
+
+System implementuje następujące reguły biznesowe:
+
+- jeden zasób nie może być zarezerwowany w dwóch nakładających się terminach
+- data zakończenia rezerwacji musi być późniejsza niż data rozpoczęcia
+- jedna rezerwacja należy do jednego użytkownika
+- jedna rezerwacja dotyczy jednego zasobu
+
+---
+
+# Architektura systemu
 
 System składa się z dwóch głównych części.
 
-### Backend
+## Backend
 
 REST API odpowiedzialne za:
 
-* logikę biznesową
-* komunikację z bazą danych
-* walidację danych
-* obsługę rezerwacji
+- logikę biznesową
+- komunikację z bazą danych
+- walidację danych
+- obsługę rezerwacji
 
 Technologie:
 
-* Python
-* FastAPI
-* SQLAlchemy
-* PostgreSQL
+- Python
+- FastAPI
+- SQLAlchemy
+- PostgreSQL
 
-### Frontend
+## Frontend
 
 Interfejs użytkownika umożliwiający:
 
-* przeglądanie zasobów
-* tworzenie rezerwacji
-* przeglądanie historii rezerwacji
+- przeglądanie zasobów
+- tworzenie rezerwacji
+- przeglądanie historii rezerwacji
 
 Technologie:
 
-* React
-* Vite
-* Axios
+- React
+- Vite
+- Axios
 
 ---
 
+# Struktura projektu
 
 ```
 system-rezerwacji
@@ -93,9 +118,27 @@ system-rezerwacji
 
 ---
 
-## Uruchomienie projektu
+# Screenshots
 
-### Backend
+### API Documentation (Swagger)
+
+![Swagger](docs/swagger.png)
+
+### Application Interface
+
+![Frontend](docs/frontend.png)
+
+---
+
+# Database Diagram
+
+![ERD](docs/erd.png)
+
+---
+
+# Uruchomienie projektu
+
+## Backend
 
 Wejdź do katalogu backend:
 
@@ -118,7 +161,7 @@ uvicorn app.main:app --reload
 API będzie dostępne pod adresem:
 
 ```
-http://127.0.0.1:8000/
+http://127.0.0.1:8000
 ```
 
 Dokumentacja API (Swagger):
@@ -129,36 +172,73 @@ http://127.0.0.1:8000/docs
 
 ---
 
-## Przykładowe endpointy
+## Frontend
+
+Wejdź do katalogu frontend:
+
+```
+cd frontend
+```
+
+Zainstaluj zależności:
+
+```
+npm install
+```
+
+Uruchom aplikację:
+
+```
+npm run dev
+```
+
+Frontend będzie dostępny pod adresem:
+
+```
+http://localhost:5173
+```
+
+---
+
+# Przykładowe endpointy API
 
 ### Dodanie użytkownika
 
 ```
 POST /users/
+```
 
+```
 {
 "name": "Jan",
 "email": "jan@example.com"
 }
 ```
 
+---
+
 ### Dodanie zasobu
 
 ```
 POST /resources/
+```
 
+```
 {
 "name": "Sala A101",
 "type": "sala"
 }
 ```
 
-### Dodanie rezerwacji
+---
 
+### Dodanie rezerwacji
 
 ```
 POST /reservations/
+```
 
+```
 {
 "start_time": "2026-03-08T10:00:00",
 "end_time": "2026-03-08T12:00:00",
@@ -169,6 +249,6 @@ POST /reservations/
 
 ---
 
-## Autor
+# Autor
 
 Projekt wykonany jako projekt portfolio programistycznego.
