@@ -4,11 +4,12 @@ Aplikacja webowa umożliwiająca zarządzanie rezerwacjami zasobów takich jak s
 
 Projekt powstał jako projekt portfolio pokazujący umiejętności w zakresie:
 
-- tworzenia backendu REST API
-- projektowania bazy danych
-- implementacji logiki biznesowej
-- integracji backendu z frontendem
-- dokumentowania systemów informatycznych
+* tworzenia backendu REST API
+* projektowania bazy danych
+* implementacji logiki biznesowej
+* integracji backendu z frontendem
+* testowania API
+* dokumentowania systemów informatycznych
 
 ---
 
@@ -16,21 +17,21 @@ Projekt powstał jako projekt portfolio pokazujący umiejętności w zakresie:
 
 Aktualnie zaimplementowano:
 
-- backend REST API
-- obsługę użytkowników
-- obsługę zasobów
-- obsługę rezerwacji
-- walidację konfliktów terminów
-- frontend połączony z backendem
-- formularz dodawania rezerwacji
+* backend REST API
+* obsługę użytkowników
+* obsługę zasobów
+* obsługę rezerwacji
+* walidację konfliktów terminów
+* frontend połączony z backendem
+* formularz dodawania rezerwacji
+* automatyczne testy backendu (pytest)
 
 Planowane rozwinięcia projektu:
 
-- role użytkowników (admin / user)
-- panel administracyjny
-- filtrowanie rezerwacji
-- testy API
-- moduł rekomendacji zasobów
+* role użytkowników (admin / user)
+* panel administracyjny
+* filtrowanie rezerwacji
+* moduł rekomendacji zasobów
 
 ---
 
@@ -38,11 +39,11 @@ Planowane rozwinięcia projektu:
 
 System umożliwia:
 
-- tworzenie użytkowników
-- zarządzanie zasobami (np. sale, sprzęt)
-- tworzenie rezerwacji
-- przeglądanie listy rezerwacji
-- walidację konfliktów rezerwacji (blokowanie nakładających się terminów)
+* tworzenie użytkowników
+* zarządzanie zasobami (np. sale, sprzęt)
+* tworzenie rezerwacji
+* przeglądanie listy rezerwacji
+* walidację konfliktów rezerwacji (blokowanie nakładających się terminów)
 
 ---
 
@@ -50,10 +51,34 @@ System umożliwia:
 
 System implementuje następujące reguły biznesowe:
 
-- jeden zasób nie może być zarezerwowany w dwóch nakładających się terminach
-- data zakończenia rezerwacji musi być późniejsza niż data rozpoczęcia
-- jedna rezerwacja należy do jednego użytkownika
-- jedna rezerwacja dotyczy jednego zasobu
+* jeden zasób nie może być zarezerwowany w dwóch nakładających się terminach
+* data zakończenia rezerwacji musi być późniejsza niż data rozpoczęcia
+* jedna rezerwacja należy do jednego użytkownika
+* jedna rezerwacja dotyczy jednego zasobu
+
+---
+
+# System Architecture
+
+![Architecture](docs/system_architecture.png)
+
+---
+
+# Database Diagram
+
+![ERD](docs/erd.png)
+
+---
+
+# Screenshots
+
+## Application Interface
+
+![Frontend](docs/frontend.png)
+
+## API Documentation
+
+![Swagger](docs/swagger.png)
 
 ---
 
@@ -65,31 +90,31 @@ System składa się z dwóch głównych części.
 
 REST API odpowiedzialne za:
 
-- logikę biznesową
-- komunikację z bazą danych
-- walidację danych
-- obsługę rezerwacji
+* logikę biznesową
+* komunikację z bazą danych
+* walidację danych
+* obsługę rezerwacji
 
 Technologie:
 
-- Python
-- FastAPI
-- SQLAlchemy
-- PostgreSQL
+* Python
+* FastAPI
+* SQLAlchemy
+* PostgreSQL
 
 ## Frontend
 
 Interfejs użytkownika umożliwiający:
 
-- przeglądanie zasobów
-- tworzenie rezerwacji
-- przeglądanie historii rezerwacji
+* przeglądanie zasobów
+* tworzenie rezerwacji
+* przeglądanie historii rezerwacji
 
 Technologie:
 
-- React
-- Vite
-- Axios
+* React
+* Vite
+* Axios
 
 ---
 
@@ -106,37 +131,23 @@ system-rezerwacji
 │   │   ├── crud.py
 │   │   ├── database.py
 │   │   └── main.py
+│   │
+│   ├── tests
+│   │   ├── conftest.py
+│   │   └── test_main.py
+│   │
+│   └── requirements.txt
 │
 ├── frontend
 │
 ├── docs
-│
-├── tests
+│   ├── erd.png
+│   ├── system_architecture.png
+│   ├── frontend.png
+│   └── swagger.png
 │
 └── README.md
 ```
-
----
-
-# Screenshots
-
-### API Documentation (Swagger)
-
-![Swagger](docs/swagger.png)
-
-### Application Interface
-
-![Frontend](docs/frontend.png)
-
----
-
-# Database Diagram
-
-![ERD](docs/erd.png)
-
-## System Architecture
-
-![Architecture](docs/system_architecture.png)
 
 ---
 
@@ -150,10 +161,30 @@ Wejdź do katalogu backend:
 cd backend
 ```
 
-Aktywuj środowisko wirtualne:
+Utwórz środowisko wirtualne:
+
+```
+python -m venv venv
+```
+
+Aktywuj środowisko:
+
+Windows CMD:
 
 ```
 venv\Scripts\activate
+```
+
+Windows PowerShell:
+
+```
+venv\Scripts\Activate.ps1
+```
+
+Zainstaluj zależności:
+
+```
+pip install -r requirements.txt
 ```
 
 Uruchom serwer:
@@ -200,6 +231,27 @@ Frontend będzie dostępny pod adresem:
 
 ```
 http://localhost:5173
+```
+
+---
+
+# Tests
+
+Backend zawiera automatyczne testy API napisane przy użyciu **pytest**.
+
+Testy obejmują:
+
+* endpoint główny API
+* tworzenie użytkownika
+* tworzenie zasobu
+* tworzenie rezerwacji
+* walidację konfliktu rezerwacji
+
+Uruchomienie testów:
+
+```
+cd backend
+pytest
 ```
 
 ---
