@@ -305,6 +305,9 @@ POST /reservations/
 
 ---
 
-# Autor
+## Autor
 
-Projekt wykonany jako projekt portfolio programistycznego.
+**Piotr Kut**  
+Student kierunku Inżynieria i Analiza Danych.
+
+GitHub: https://github.com/kutpiotr
