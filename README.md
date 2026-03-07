@@ -120,26 +120,26 @@ http://127.0.0.1:8000/docs
 # Przykładowe endpointy
 
 ### Dodanie użytkownika
-
+```
 POST /users/
 {
 "name": "Jan",
 "email": "jan@example.com
 "
 }
-
+```
 
 ### Dodanie zasobu
-
+```
 POST /resources/
 {
 "name": "Sala A101",
 "type": "sala"
 }
-
+```
 
 ### Dodanie rezerwacji
-
+```
 POST /reservations/
 {
 "start_time": "2026-03-08T10:00:00",
@@ -147,7 +147,7 @@ POST /reservations/
 "user_id": 1,
 "resource_id": 1
 }
-
+```
 
 ---
 
