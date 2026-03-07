@@ -69,8 +69,11 @@ Technologie:
 
 ---
 
+<<<<<<< HEAD
 ## Struktura projektu
 
+=======
+>>>>>>> b6b617b385d9470920d3a9a05354116bf8053b83
 ```
 system-rezerwacji
 │
@@ -155,6 +158,7 @@ POST /resources/
 ```
 
 ### Dodanie rezerwacji
+
 
 ```
 POST /reservations/
