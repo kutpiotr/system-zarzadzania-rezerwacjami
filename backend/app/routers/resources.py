@@ -1,0 +1,14 @@
+from fastapi import APIRouter, Depends
+from sqlalchemy.orm import Session
+from app.database import get_db
+from app import crud, schemas
+
+router = APIRouter(prefix="/resources", tags=["Resources"])
+
+@router.post("/", response_model=schemas.ResourceResponse)
+def create_resource(resource: schemas.ResourceCreate, db: Session = Depends(get_db)):
+    return crud.create_resource(db, resource)
+
+@router.get("/", response_model=list[schemas.ResourceResponse])
+def get_resources(db: Session = Depends(get_db)):
+    return crud.get_resources(db)
