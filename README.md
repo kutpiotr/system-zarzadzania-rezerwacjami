@@ -74,7 +74,7 @@ Frontend komunikuje się z backendem poprzez REST API, a backend zapisuje dane w
 
 # Diagram bazy danych
 
-<img src="docs/architecture.png" width="800" style="border:1px solid gray;">
+![Diagram ERD](docs/erd.png)
 
 Diagram przedstawia strukturę bazy danych oraz relacje między tabelami:
 
