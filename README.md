@@ -69,17 +69,17 @@ Technologie:
 
 ---
 
-# Struktura projektu
+```
 system-rezerwacji
 │
 ├── backend
-│ ├── app
-│ │ ├── routers
-│ │ ├── models.py
-│ │ ├── schemas.py
-│ │ ├── crud.py
-│ │ ├── database.py
-│ │ └── main.py
+│   ├── app
+│   │   ├── routers
+│   │   ├── models.py
+│   │   ├── schemas.py
+│   │   ├── crud.py
+│   │   ├── database.py
+│   │   └── main.py
 │
 ├── frontend
 │
@@ -88,6 +88,7 @@ system-rezerwacji
 ├── tests
 │
 └── README.md
+```
 
 ---
 
