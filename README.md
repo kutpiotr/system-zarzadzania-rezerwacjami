@@ -13,7 +13,7 @@ Projekt powstał jako projekt portfolio pokazujący umiejętności w zakresie:
 
 ---
 
-# Project Status
+# Status projektu
 
 Aktualnie zaimplementowano:
 
@@ -47,7 +47,7 @@ System umożliwia:
 
 ---
 
-# Business Rules
+# Reguły biznesowe
 
 System implementuje następujące reguły biznesowe:
 
@@ -58,59 +58,73 @@ System implementuje następujące reguły biznesowe:
 
 ---
 
-# System Architecture
+# Architektura systemu
 
-![Architecture](docs/system_architecture.png)
+![Architektura systemu](docs/system_architecture.png)
+
+System składa się z trzech głównych komponentów:
+
+* **Frontend** – aplikacja webowa umożliwiająca interakcję użytkownika z systemem
+* **Backend API** – logika biznesowa i obsługa żądań
+* **Baza danych** – przechowywanie danych użytkowników, zasobów i rezerwacji
+
+Frontend komunikuje się z backendem poprzez REST API, a backend zapisuje dane w bazie PostgreSQL.
 
 ---
 
-# Database Diagram
+# Diagram bazy danych
 
-![ERD](docs/erd.png)
+![Diagram ERD](docs/erd.png)
+
+Diagram przedstawia strukturę bazy danych oraz relacje między tabelami:
+
+* users
+* resources
+* reservations
 
 ---
 
-# Screenshots
+# Zrzuty ekranu
 
-## Application Interface
+## Interfejs aplikacji
 
 ![Frontend](docs/frontend.png)
 
-## API Documentation
+## Dokumentacja API
 
 ![Swagger](docs/swagger.png)
 
 ---
 
-# Architektura systemu
-
-System składa się z dwóch głównych części.
+# Technologie
 
 ## Backend
 
-REST API odpowiedzialne za:
+Backend odpowiada za:
 
 * logikę biznesową
 * komunikację z bazą danych
 * walidację danych
 * obsługę rezerwacji
 
-Technologie:
+Wykorzystane technologie:
 
 * Python
 * FastAPI
 * SQLAlchemy
 * PostgreSQL
 
+---
+
 ## Frontend
 
-Interfejs użytkownika umożliwiający:
+Frontend odpowiada za interfejs użytkownika umożliwiający:
 
 * przeglądanie zasobów
 * tworzenie rezerwacji
-* przeglądanie historii rezerwacji
+* przeglądanie listy rezerwacji
 
-Technologie:
+Wykorzystane technologie:
 
 * React
 * Vite
@@ -155,7 +169,7 @@ system-rezerwacji
 
 ## Backend
 
-Wejdź do katalogu backend:
+Przejdź do katalogu backend:
 
 ```
 cd backend
@@ -199,7 +213,7 @@ API będzie dostępne pod adresem:
 http://127.0.0.1:8000
 ```
 
-Dokumentacja API (Swagger):
+Dokumentacja API:
 
 ```
 http://127.0.0.1:8000/docs
@@ -209,7 +223,7 @@ http://127.0.0.1:8000/docs
 
 ## Frontend
 
-Wejdź do katalogu frontend:
+Przejdź do katalogu frontend:
 
 ```
 cd frontend
@@ -235,7 +249,7 @@ http://localhost:5173
 
 ---
 
-# Tests
+# Testy
 
 Backend zawiera automatyczne testy API napisane przy użyciu **pytest**.
 
@@ -258,7 +272,7 @@ pytest
 
 # Przykładowe endpointy API
 
-### Dodanie użytkownika
+## Dodanie użytkownika
 
 ```
 POST /users/
@@ -273,7 +287,7 @@ POST /users/
 
 ---
 
-### Dodanie zasobu
+## Dodanie zasobu
 
 ```
 POST /resources/
@@ -288,7 +302,7 @@ POST /resources/
 
 ---
 
-### Dodanie rezerwacji
+## Dodanie rezerwacji
 
 ```
 POST /reservations/
@@ -305,9 +319,9 @@ POST /reservations/
 
 ---
 
-## Autor
+# Autor
 
-**Piotr Kut**  
+**Piotr Kut**
 Student kierunku Inżynieria i Analiza Danych.
 
 GitHub: https://github.com/kutpiotr
