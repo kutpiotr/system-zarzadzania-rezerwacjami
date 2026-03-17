@@ -323,5 +323,3 @@ POST /reservations/
 
 **Piotr Kut**
 Student kierunku Inżynieria i Analiza Danych.
-
-GitHub: https://github.com/kutpiotr
